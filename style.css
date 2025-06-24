@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #000000;
+}
+
+header {
+    background-color: #b30808;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    max-width: 960px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #660404;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.car-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    flex-wrap: wrap; 
+}
+
+.car-item img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.car-details {
+    flex-grow: 1;
+}
+
+.car-details h3 {
+    margin: 0 0 5px 0;
+    color: #660404;
+}
+
+.car-details p {
+    margin: 0;
+}
+
+.car-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#summary, #order-list {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.order-item {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.order-item button {
+    background-color: #dc3545;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.order-item button:hover {
+    background-color: #c82333;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #660404;
+    color: #fff;
+    margin-top: 30px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .car-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .car-item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        height: auto;
+    }
+
+    .car-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .form-group input {
+        width: 100%;
+    }
+}

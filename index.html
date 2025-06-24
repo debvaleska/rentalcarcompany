@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Sewa Mobil ABC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Aplikasi Sewa Mobil ABC</h1>
+    </header>
+
+    <main>
+        <section id="car-list">
+            <h2>Daftar Mobil Tersedia</h2>
+            </section>
+
+        <section id="customer-form">
+            <h2>Data Pelanggan & Perhitungan</h2>
+            <form id="rental-form">
+                <div class="form-group">
+                    <label for="customer-name">Nama Pelanggan:</label>
+                    <input type="text" id="customer-name" required>
+                </div>
+                <button type="button" id="calculate-total">Hitung Total</button>
+            </form>
+            <div id="summary">
+                </div>
+            <button type="button" id="save-order">Simpan Pemesanan</button>
+        </section>
+
+        <section id="order-history">
+            <h2>Riwayat Pemesanan</h2>
+            <div id="order-list">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Perusahaan ABC. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
