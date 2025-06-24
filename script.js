@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const summaryDiv = document.getElementById('summary');
     const orderListDiv = document.getElementById('order-list');
 
-    // Render daftar mobil
     function renderCars() {
         let carsHtml = '<h2>Daftar Mobil Tersedia</h2>';
         cars.forEach(car => {
@@ -47,13 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 durationInput.disabled = !event.target.checked;
                 if (!event.target.checked) {
                     startDateInput.value = '';
-                    durationInput.value = 1; // Reset to default
+                    durationInput.value = 1; 
                 }
             });
         });
     }
 
-    // Hitung total harga sewa
     calculateTotalBtn.addEventListener('click', () => {
         const selectedCars = [];
         let totalOverallPrice = 0;
@@ -79,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (!startDate || isNaN(duration) || duration <= 0) {
                     alert(`Harap lengkapi tanggal mulai sewa dan durasi untuk ${car.name}.`);
-                    selectedCars.length = 0; // Clear selection to prevent partial calculation
-                    return; // Stop processing further if validation fails
+                    selectedCars.length = 0;  
+                    return;  
                 }
 
                 const subtotal = car.pricePerDay * duration;
@@ -111,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         summaryDiv.innerHTML = summaryHtml;
     });
 
-    // Simpan pemesanan ke localStorage
     saveOrderBtn.addEventListener('click', () => {
         const customerName = customerNameInput.value.trim();
         const selectedCars = [];
@@ -142,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalOverallPrice += subtotal;
 
                 selectedCars.push({
-                    id: car.id, // Store car ID for easier lookup if needed later
+                    id: car.id,  
                     name: car.name,
                     startDate: startDate,
                     duration: duration,
@@ -160,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const timestamp = new Date().toLocaleString('id-ID'); // Get current timestamp
+        const timestamp = new Date().toLocaleString('id-ID');  
 
         const newOrder = {
             id: Date.now(), // Unique ID for each order
@@ -175,11 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('carRentals', JSON.stringify(orders));
 
         alert('Pemesanan berhasil disimpan!');
-        renderOrderHistory(); // Refresh history
-        resetForm(); // Reset form after saving
+        renderOrderHistory();  
+        resetForm();  
     });
 
-    // Reset form
+     
     function resetForm() {
         customerNameInput.value = '';
         document.querySelectorAll('.car-item input[type="checkbox"]').forEach(checkbox => {
@@ -193,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         summaryDiv.innerHTML = '';
     }
 
-    // Tampilkan riwayat pemesanan dari localStorage
+   
     function renderOrderHistory() {
         let orders = JSON.parse(localStorage.getItem('carRentals')) || [];
         if (orders.length === 0) {
@@ -221,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         orderListDiv.innerHTML = historyHtml;
 
-        // Tambahkan event listener untuk tombol hapus
+        
         document.querySelectorAll('.delete-order-btn').forEach(button => {
             button.addEventListener('click', (event) => {
                 const orderItem = event.target.closest('.order-item');
@@ -231,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Hapus pemesanan dari localStorage
+    
     function deleteOrder(id) {
         let orders = JSON.parse(localStorage.getItem('carRentals')) || [];
         orders = orders.filter(order => order.id !== id);
@@ -240,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderOrderHistory();
     }
 
-    // Inisialisasi aplikasi saat dimuat
+     
     renderCars();
     renderOrderHistory();
 });
